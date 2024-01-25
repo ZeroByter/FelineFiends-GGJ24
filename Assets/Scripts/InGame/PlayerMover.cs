@@ -12,7 +12,7 @@ public class PlayerMover : MonoBehaviour
     private float jumpDirection = 1;
     private bool isJumping = false;
     private bool isWalking = false;
-	private bool isGrounded;
+	private bool isGrounded = true;
 
 	private void Reset()
     {
