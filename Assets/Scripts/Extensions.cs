@@ -5,6 +5,20 @@ namespace Extensions
 {
 	static class Extensions
 	{
+		public static void Swap<T>(ref T obj1, ref T obj2) => (obj2, obj1) = (obj1, obj2);
+
+		public static float ClampMin(float val, float min) => Mathf.Max(val, min);
+
+		public static float ClampMax(float val, float max) => Mathf.Min(val, max);
+
+		public static float ClampRange(float val, float min, float max) => ClampMin(ClampMax(val, max), min);
+
+		public static int ClampMin(int val, int min) => Mathf.Max(val, min);
+
+		public static int ClampMax(int val, int max) => Mathf.Min(val, max);
+
+		public static int ClampRange(int val, int min, int max) => ClampMin(ClampMax(val, max), min);
+
 		public static Vector2 Direction(Vector2 source, Vector2 target)
 		{
 			return target - source;
