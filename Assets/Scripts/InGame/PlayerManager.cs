@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     private PlayerMover mover;
     private PlayerWallsStick wallsStick;
+    private PlayerCeilingCollision ceilingCollision;
 
     private bool hasJumped;
 
@@ -13,12 +14,15 @@ public class PlayerManager : MonoBehaviour
     private bool isGrounded;
 
     private bool isTouchingWall;
+
+    private bool lastIsTouchingCeiling;
     private bool isTouchingCeiling;
 
     private void Awake()
     {
         mover = GetComponent<PlayerMover>();
         wallsStick = GetComponent<PlayerWallsStick>();
+        ceilingCollision = GetComponent<PlayerCeilingCollision>();
 
         UpdateState();
     }
@@ -32,6 +36,11 @@ public class PlayerManager : MonoBehaviour
 
         mover.enabled = isGrounded;
         wallsStick.enabled = !isGrounded && isTouchingWall;
+
+        if (!lastIsTouchingCeiling && isTouchingCeiling)
+        {
+            ceilingCollision.TriggerCeilingCollision();
+        }
     }
 
     public void SetHasJumped(bool jumped)
@@ -54,6 +63,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void SetIsTouchingCeiling(bool touchingCeiling)
     {
+        lastIsTouchingCeiling = isTouchingCeiling;
         isTouchingCeiling = touchingCeiling;
         UpdateState();
     }
