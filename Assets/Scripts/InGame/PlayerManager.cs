@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    private static PlayerManager Singleton;
+
+    public static Vector3 GetPosition()
+    {
+        if (Singleton == null) return Vector3.zero;
+
+        return Singleton.transform.position;
+    }
+
     private PlayerMover mover;
     private PlayerWallsStick wallsStick;
 
@@ -13,6 +22,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        Singleton = this;
+
         mover = GetComponent<PlayerMover>();
         wallsStick = GetComponent<PlayerWallsStick>();
 
