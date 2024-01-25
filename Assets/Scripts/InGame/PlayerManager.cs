@@ -7,7 +7,11 @@ public class PlayerManager : MonoBehaviour
     private PlayerMover mover;
     private PlayerWallsStick wallsStick;
 
+    private bool hasJumped;
+
+    private bool lastIsGrounded;
     private bool isGrounded;
+
     private bool isTouchingWall;
     private bool isTouchingCeiling;
 
@@ -21,12 +25,25 @@ public class PlayerManager : MonoBehaviour
 
     private void UpdateState()
     {
+        if(!lastIsGrounded && isGrounded)
+        {
+            hasJumped = false;
+        }
+
         mover.enabled = isGrounded;
         wallsStick.enabled = !isGrounded && isTouchingWall;
     }
 
+    public void SetHasJumped(bool jumped)
+    {
+        hasJumped = jumped;
+        UpdateState();
+    }
+    public bool GetHasJumped() => hasJumped;
+
     public void SetGrounded(bool grounded)
     {
+        lastIsGrounded = isGrounded;
         isGrounded = grounded;
         UpdateState();
     }
