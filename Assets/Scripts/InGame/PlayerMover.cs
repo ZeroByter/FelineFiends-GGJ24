@@ -2,24 +2,21 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
-    [HideInInspector] public bool isOnGround;
-
-    [SerializeField] private Rigidbody2D _playerRb;
-    [SerializeField] private float _moveSpeed = 1;
-    [SerializeField] private float _jumpForce = 1;
-
+    [SerializeField] private Rigidbody2D playerRb;
+    [SerializeField] private float moveSpeed = 1;
+    [SerializeField] private float jumpForce = 1;
     [SerializeField] private float jumpUpVelocityMultiplier = 1.5f;
     [SerializeField] private float jumpChargeMaxTime = 3;
 
     private float jumpChargeStart;
     private float jumpDirection = 1;
     private bool isJumping = false;
-
     private bool isWalking = false;
+	private bool isGrounded;
 
-    private void Reset()
+	private void Reset()
     {
-        _playerRb = GetComponent<Rigidbody2D>();
+        playerRb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -29,7 +26,7 @@ public class PlayerMover : MonoBehaviour
 
         isWalking = walkingLeft || walkingRight;
 
-        if (isOnGround && isWalking && !isJumping)
+        if (isGrounded && isWalking && !isJumping)
         {
             isJumping = false;
 
@@ -39,13 +36,13 @@ public class PlayerMover : MonoBehaviour
                 walkingDirection = -1;
             }
 
-            _playerRb.AddForce(Vector3.right * _moveSpeed * walkingDirection * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            playerRb.AddForce(Vector3.right * moveSpeed * walkingDirection * Time.fixedDeltaTime, ForceMode2D.Impulse);
         }
     }
 
     private void Update()
     {
-        if (isOnGround)
+        if (isGrounded)
         {
             if (!isWalking)
             {
@@ -67,10 +64,12 @@ public class PlayerMover : MonoBehaviour
             {
                 var jumpCharge = Time.time - jumpChargeStart;
 
-                _playerRb.AddForce((Vector3.up * jumpUpVelocityMultiplier + Vector3.right * jumpDirection) * jumpCharge * _jumpForce, ForceMode2D.Force);
+                playerRb.AddForce((Vector3.up * jumpUpVelocityMultiplier + Vector3.right * jumpDirection) * jumpCharge * jumpForce, ForceMode2D.Force);
 
                 isJumping = false;
             }
         }
     }
+
+    public void SetGrounded(bool grounded) => isGrounded = grounded;
 }
