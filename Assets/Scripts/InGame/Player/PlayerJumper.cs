@@ -10,13 +10,12 @@ namespace InGame.Player
 		[SerializeField] private UnityEvent<float> playerJumpEvent;
 		[SerializeField] private UnityEvent playerPrepareJumpEvent;
 		[SerializeField] private Rigidbody2D playerRb;
-		[SerializeField] private Vector2 force = new(100, 150);
+		[SerializeField] private Vector2 velocity = new(5, 7.5f);
 		[SerializeField] private float chargeMaxTime = 1;
+		[SerializeField] private float minJumpVelocity = 1;
 		private float startTime;
 
-		public Vector2 JumpDirection => force * new Vector2(PlayerManager.Instance.FacingDirection, 1);
-		public float JumpVelocity => JumpDirection.magnitude * TimePassed;
-		private Vector2 JumpForce => JumpDirection * TimePassed;
+		public Vector2 JumpVelocity => ClampMin(velocity * new Vector2(PlayerManager.Instance.FacingDirection, 1) * TimePassed, minJumpVelocity);
 		private float TimePassed => ClampMax(Time.time - startTime, chargeMaxTime);
 
 		private void Reset()
@@ -34,7 +33,10 @@ namespace InGame.Player
 			}
 			else if (context.canceled)
 			{
-				playerRb.velocity = JumpForce;
+				Vector2 jumpVelocity = JumpVelocity;
+				if (jumpVelocity.magnitude < minJumpVelocity)
+					jumpVelocity = JumpVelocity.normalized * minJumpVelocity;
+				playerRb.velocity = jumpVelocity;
 				playerJumpEvent.Invoke(TimePassed);
 			}
 		}

@@ -19,6 +19,13 @@ namespace Extensions
 
 		public static int ClampRange(int val, int min, int max) => ClampMin(ClampMax(val, max), min);
 
+		public static Vector2 ClampMin(Vector2 val, float min)
+		{
+			if (val.magnitude < min)
+				val = val.normalized * min;
+			return val;
+		}
+
 		public static Vector2 Direction(Vector2 source, Vector2 target)
 		{
 			return target - source;

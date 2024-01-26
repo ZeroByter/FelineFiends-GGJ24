@@ -9,9 +9,8 @@ namespace InGame.Player
 		[SerializeField] private int steps;
 		[SerializeField] private float distance;
 
-		private float LaunchVelocity => jump.JumpVelocity;
-		private Vector2 LaunchDirection => jump.JumpDirection.normalized;
-		private Transform ObjectShootRoot => jump.transform;
+		private Vector2 JumpVelocity => jump.JumpVelocity;
+		private Transform JumpRoot => jump.transform;
 
 		private void OnValidate()
 		{
@@ -27,7 +26,7 @@ namespace InGame.Player
 
 		private Vector2 GetPosition(float t)
 		{
-			return (Vector2)ObjectShootRoot.position + (LaunchVelocity * t * LaunchDirection) + 0.5f * t * t * Physics2D.gravity;
+			return (Vector2)JumpRoot.position + (t * JumpVelocity) + 0.5f * t * t * Physics2D.gravity;
 		}
 	}
 }
