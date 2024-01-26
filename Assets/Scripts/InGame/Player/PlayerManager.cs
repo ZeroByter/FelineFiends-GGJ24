@@ -19,6 +19,8 @@ namespace InGame.Player
 		[SerializeField] private PlayerMover move;
 		[SerializeField] private PlayerJumper jump;
 		[SerializeField] private PlayerWallsStick wallsStick;
+		[Header("Directional Triggers")]
+		[SerializeField] private List<GameObject> sidewaysTriggers;
 		[Header("Player properties")]
 		[SerializeField] private float playerFriction = 5;
 		[Header("Events")]
@@ -53,20 +55,22 @@ namespace InGame.Player
 			OnLand();
 		}
 
-		public void OnJump()
+		public void OnJump() => OnLeaveGround();
+
+		public void OnLeaveGround()
 		{
 			move.enabled = false;
 			jump.enabled = false;
 			wallsStick.enabled = false;
+			sidewaysTriggers.ForEach(t => t.SetActive(true));
 		}
-
-		public void OnLeaveGround() => OnJump();
 
 		public void OnLand()
 		{
 			move.enabled = true;
 			jump.enabled = true;
 			wallsStick.enabled = false;
+			sidewaysTriggers.ForEach(t => t.SetActive(false));
 			onLand.Invoke();
 		}
 
