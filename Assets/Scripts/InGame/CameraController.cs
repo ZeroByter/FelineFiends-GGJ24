@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using InGame.Player;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+namespace InGame
 {
-    private void Update()
-    {
-        transform.position = PlayerManager.GetPosition() + new Vector3(0, 0, -10);
-    }
+	public class CameraController : MonoBehaviour
+	{
+		private void Update()
+		{
+			transform.position = PlayerManager.GetPosition() + new Vector3(0, 0, -10);
+		}
+	}
 }
