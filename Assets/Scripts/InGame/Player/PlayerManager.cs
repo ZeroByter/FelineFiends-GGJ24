@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using InGame.Collectibles;
 
 namespace InGame.Player
 {
@@ -26,6 +27,7 @@ namespace InGame.Player
 		[Header("Events")]
 		[SerializeField] private UnityEvent onBumpCeiling;
 		[SerializeField] private UnityEvent onLand;
+		[SerializeField] private UnityEvent<BaseCollectible> onCollect;
 
 		public float FacingDirection { get; set; }
 
@@ -86,6 +88,11 @@ namespace InGame.Player
 		public void OnBumpCeiling()
 		{
 			onBumpCeiling.Invoke();
+		}
+
+		public void OnCollectItem(BaseCollectible collectible)
+		{
+			onCollect.Invoke(collectible);
 		}
 	}
 }
