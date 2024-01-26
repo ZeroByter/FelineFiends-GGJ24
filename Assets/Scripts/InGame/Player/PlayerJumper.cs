@@ -14,6 +14,11 @@ namespace InGame.Player
 		[SerializeField] private float chargeMaxTime = 1;
 		private float startTime;
 
+		public Vector2 JumpDirection => force * new Vector2(PlayerManager.Instance.FacingDirection, 1);
+		public float JumpVelocity => JumpDirection.magnitude * TimePassed;
+		private Vector2 JumpForce => JumpDirection * TimePassed;
+		private float TimePassed => ClampMax(Time.time - startTime, chargeMaxTime);
+
 		private void Reset()
 		{
 			playerRb = GetComponent<Rigidbody2D>();
@@ -25,16 +30,12 @@ namespace InGame.Player
 			if (context.started)
 			{
 				playerPrepareJumpEvent.Invoke();
-				startTime = (float)context.startTime;
+				startTime = Time.time;
 			}
 			else if (context.canceled)
 			{
-				float timePassed = (float)context.time - startTime;
-				timePassed = ClampMax(timePassed, chargeMaxTime);
-				Vector2 jumpForce = force * new Vector2(PlayerManager.Instance.FacingDirection, 1) * timePassed;
-				playerRb.velocity = Vector2.zero;
-				playerRb.AddForce(jumpForce, ForceMode2D.Force);
-				playerJumpEvent.Invoke(timePassed);
+				playerRb.velocity = JumpForce;
+				playerJumpEvent.Invoke(TimePassed);
 			}
 		}
 	}
