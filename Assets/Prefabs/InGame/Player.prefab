@@ -146,7 +146,7 @@ MonoBehaviour:
         m_CallState: 2
   terrainMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!1 &860812406233185033
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +516,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   playerRb: {fileID: 5059896502581431640}
-  velocity: {x: 13, y: 19}
+  velocity: {x: 10, y: 18}
   chargeMaxTime: 0.8
   minJumpVelocity: 1.75
 --- !u!114 &6262590066106683383
@@ -942,7 +942,7 @@ MonoBehaviour:
       m_Calls: []
   terrainMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!1 &5413848103380939310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,7 +1335,7 @@ MonoBehaviour:
         m_CallState: 2
   terrainMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!1 &8884420262448193073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1482,7 @@ MonoBehaviour:
         m_CallState: 2
   terrainMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!1001 &7648022059553124751
 PrefabInstance:
   m_ObjectHideFlags: 0

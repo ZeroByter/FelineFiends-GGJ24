@@ -1,3 +1,4 @@
+using Extensions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,8 +10,20 @@ namespace InGame
 		[SerializeField] private UnityEvent<Collider2D> onTriggerExit;
 		[SerializeField] private LayerMask terrainMask;
 
-		private void OnTriggerEnter2D(Collider2D collision) => onTriggerEnter.Invoke(collision);
+		private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (terrainMask.Contains(collision.gameObject.layer))
+            {
+				onTriggerEnter.Invoke(collision);
+			}
+		}
 
-		private void OnTriggerExit2D(Collider2D collision) => onTriggerExit.Invoke(collision);
+		private void OnTriggerExit2D(Collider2D collision)
+        {
+			if (terrainMask.Contains(collision.gameObject.layer))
+            {
+				onTriggerExit.Invoke(collision);
+			}
+        }
 	}
 }
