@@ -7,7 +7,16 @@ namespace InGame.Player
 	{
 		[SerializeField] private UnityEvent startSlideEvent;
 		[SerializeField] private Rigidbody2D playerRb;
+		[SerializeField] private float stickDuration = 1;
+		[SerializeField] private float slideDuration = 3;
+		[SerializeField] private float defaultGravityScale = 1;
 		private float timeEnabled;
+
+		private void OnValidate()
+		{
+			if (playerRb != null)
+				defaultGravityScale = playerRb.gravityScale;
+		}
 
 		private void Reset()
 		{
@@ -19,16 +28,17 @@ namespace InGame.Player
 			playerRb.gravityScale = 0;
 			playerRb.velocity = Vector3.zero;
 			timeEnabled = Time.time;
+			startSlideEvent.Invoke();
 		}
 
 		private void OnDisable()
 		{
-			playerRb.gravityScale = 1;
+			playerRb.gravityScale = defaultGravityScale;
 		}
 
 		private void Update()
 		{
-			playerRb.gravityScale = Mathf.InverseLerp(timeEnabled + 1, timeEnabled + 1 + 3, Time.time);
+			playerRb.gravityScale = Mathf.InverseLerp(timeEnabled + stickDuration, timeEnabled + stickDuration + slideDuration, Time.time) * defaultGravityScale;
 		}
 	}
 }
