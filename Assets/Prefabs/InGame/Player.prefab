@@ -96,7 +96,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1149303502186610026}
         m_TargetAssemblyTypeName: InGame.Player.PlayerManager, Assembly-CSharp
         m_MethodName: OnStickToWall
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -146,7 +146,7 @@ MonoBehaviour:
         m_CallState: 2
   terrainMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
 --- !u!1 &860812406233185033
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +165,8 @@ GameObject:
   - component: {fileID: 6262590066106683383}
   - component: {fileID: 1289616843433685014}
   - component: {fileID: 1364402613529195147}
+  - component: {fileID: 2627098022872963947}
+  - component: {fileID: 8701562144103680972}
   m_Layer: 6
   m_Name: Cat
   m_TagString: Untagged
@@ -181,7 +183,7 @@ Transform:
   m_GameObject: {fileID: 860812406233185033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.94, y: -0.3, z: 0}
+  m_LocalPosition: {x: -9.1, y: 25.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -379,6 +381,7 @@ MonoBehaviour:
   move: {fileID: 219049823164549051}
   jump: {fileID: 3728800116001951150}
   wallsStick: {fileID: 6262590066106683383}
+  rope: {fileID: 8701562144103680972}
   sidewaysTriggers:
   - {fileID: 603346053434765136}
   - {fileID: 8884420262448193073}
@@ -413,6 +416,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onEnterRope:
+    m_PersistentCalls:
+      m_Calls: []
+  ropeLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &219049823164549051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +576,38 @@ MonoBehaviour:
   _landShakeTime: 0.25
   _landShakeMinVelocity: 1
   _cameraManager: {fileID: 7666112620527788232}
+--- !u!255 &2627098022872963947
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860812406233185033}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -9.1, y: 24.73}
+  m_DampingRatio: 0
+  m_Frequency: 0
+--- !u!114 &8701562144103680972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860812406233185033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809314cddc0d28e4daced2dd524ffaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixedJoint: {fileID: 2627098022872963947}
 --- !u!1 &2515005549890540602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,7 +1473,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1149303502186610026}
         m_TargetAssemblyTypeName: InGame.Player.PlayerManager, Assembly-CSharp
         m_MethodName: OnStickToWall
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1482,7 +1523,7 @@ MonoBehaviour:
         m_CallState: 2
   terrainMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
 --- !u!1001 &7648022059553124751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1553,11 +1594,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9400005
+      value: -9.1
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29999924
+      value: 25.73
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1565,11 +1606,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9400005
+      value: -9.1
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29999924
+      value: 25.73
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.z
