@@ -9,13 +9,14 @@ namespace InGame.Player
 	{
 		[SerializeField] private UnityEvent<float> playerJumpEvent;
 		[SerializeField] private UnityEvent playerPrepareJumpEvent;
+		[SerializeField] private UnityEvent playerJumpInterruptedEvent;
 		[SerializeField] private Rigidbody2D playerRb;
 		[SerializeField] private Vector2 velocity = new(5, 7.5f);
 		[SerializeField] private float chargeMaxTime = 1;
 		[SerializeField] private float minJumpVelocity = 1;
 		private float startTime = float.NaN;
 
-		public bool JumpCharging => !float.IsNaN(startTime);
+		public bool JumpCharging { get => !float.IsNaN(startTime); private set => startTime = float.NaN; }
 		public Vector2 JumpVelocity => ClampMin(velocity * new Vector2(PlayerManager.Instance.FacingDirection, 1) * TimePassed, minJumpVelocity);
 		private float TimePassed => ClampMax(Time.time - startTime, chargeMaxTime);
 
@@ -40,8 +41,14 @@ namespace InGame.Player
 					jumpVelocity = JumpVelocity.normalized * minJumpVelocity;
 				playerRb.velocity = jumpVelocity;
 				playerJumpEvent.Invoke(TimePassed);
-				startTime = float.NaN;
+				JumpCharging = false;
 			}
+		}
+
+		public void ForceInterruptCharge()
+		{
+			JumpCharging = false;
+			playerJumpInterruptedEvent.Invoke();
 		}
 	}
 }
