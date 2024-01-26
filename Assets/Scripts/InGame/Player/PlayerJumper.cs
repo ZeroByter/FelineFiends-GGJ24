@@ -19,6 +19,7 @@ namespace InGame.Player
 		public bool JumpCharging { get => !float.IsNaN(startTime); private set => startTime = float.NaN; }
 		public Vector2 JumpVelocity => ClampMin(velocity * new Vector2(PlayerManager.Instance.FacingDirection, 1) * TimePassed, minJumpVelocity);
 		private float TimePassed => ClampMax(Time.time - startTime, chargeMaxTime);
+		public float JumpForcePercentage => TimePassed / chargeMaxTime;
 
 		private void Reset()
 		{
@@ -40,7 +41,7 @@ namespace InGame.Player
 				if (jumpVelocity.magnitude < minJumpVelocity)
 					jumpVelocity = JumpVelocity.normalized * minJumpVelocity;
 				playerRb.velocity = jumpVelocity;
-				playerJumpEvent.Invoke(TimePassed);
+				playerJumpEvent.Invoke(JumpForcePercentage);
 				JumpCharging = false;
 			}
 		}
