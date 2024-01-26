@@ -101,7 +101,9 @@ namespace InGame.Player
                 spriteRenderer.flipX = !spriteRenderer.flipX;
             }
 
-            if(Time.time > lastFrameChange + GetCurrentAnimationSpeed())
+            var animationSpeed = GetCurrentAnimationSpeed();
+
+            if (animationSpeed > 0 && Time.time > lastFrameChange + animationSpeed)
             {
                 lastFrameChange = Time.time;
 
@@ -121,7 +123,7 @@ namespace InGame.Player
 
             if (currentState.velocityBasedSpeed)
             {
-                return PlayerManager.GetRigidbody().velocity.magnitude;
+                return PlayerManager.GetRigidbody().velocity.magnitude * currentState.speed;
             }
             else
             {
