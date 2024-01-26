@@ -1,13 +1,17 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UI;
 
 namespace Management
 {
 	public class PauseManager : MonoBehaviour
 	{
-		[SerializeField] private CameraPause _camera;
-		[SerializeField] private GameObject[] _objectsToToggle;
-		private bool _paused = false;
+		private const string playerActionMapName = "Player";
+
+		[SerializeField] private List<GameObject> objectsToToggle;
+		[SerializeField] private InputActionAsset playerInputActions;
+		private bool paused = false;
 
 		public static PauseManager Instance { get; private set; }
 
@@ -22,9 +26,15 @@ namespace Management
 			SetPaused(false);
 		}
 
+		private void OnApplicationFocus(bool focus)
+		{
+			if (!focus)
+				SetPaused(true);
+		}
+
 		public void OnPause(InputAction.CallbackContext context)
 		{
-			if (context.performed)
+			if (context.started)
 			{
 				ToggleState();
 				ForceCurrentState();
@@ -33,31 +43,28 @@ namespace Management
 
 		public void SetPaused(bool paused)
 		{
-			_paused = paused;
-			_camera.SetPaused(paused);
-			SetAllObjects(!paused);
+			this.paused = paused;
+			Time.timeScale = paused ? 0 : 1;
+			objectsToToggle.ForEach(o => o.SetActive(!paused));
+			if (paused)
+			{
+				playerInputActions.FindActionMap(playerActionMapName).Disable();
+				MenuManager.Instance.ShowPauseMenu();
+			}
+			else
+			{
+				playerInputActions.FindActionMap(playerActionMapName).Enable();
+			}
 		}
 
 		private void ForceCurrentState()
 		{
-			SetPaused(_paused);
-		}
-
-		private void SetAllObjects(bool active)
-		{
-			foreach (var obj in _objectsToToggle)
-				obj.SetActive(active);
+			SetPaused(paused);
 		}
 
 		private void ToggleState()
 		{
-			_paused = !_paused;
-		}
-
-		private void OnApplicationFocus(bool focus)
-		{
-			if (!focus)
-				SetPaused(true);
+			paused = !paused;
 		}
 	}
 }

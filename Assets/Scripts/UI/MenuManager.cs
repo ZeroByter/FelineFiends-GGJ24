@@ -1,3 +1,4 @@
+using Management;
 using UnityEngine;
 
 namespace UI
@@ -14,15 +15,19 @@ namespace UI
 				Instance = this;
 		}
 
-		private void DisableAll()
-		{
-			_pauseMenu.SetActive(false);
-		}
-
 		public void ShowPauseMenu()
 		{
-			DisableAll();
 			_pauseMenu.SetActive(true);
 		}
+
+		public void ReturnToGame()
+		{
+			_pauseMenu.SetActive(false);
+			PauseManager.Instance.SetPaused(false);
+		}
+
+		public void RestartLevel() => GameManager.RestartLevel();
+
+		public void ExitToMainMenu() => GameManager.ExitToMainMenu();
 	}
 }

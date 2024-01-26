@@ -22,6 +22,11 @@ namespace Management
 			SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Single);
 		}
 
+		public static void RestartLevel()
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+
 		public static void ExitToMainMenu()
 		{
 			DOTween.KillAll();

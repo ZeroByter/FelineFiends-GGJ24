@@ -23,17 +23,19 @@ namespace InGame.Player
 			playerRb = GetComponent<Rigidbody2D>();
 		}
 
-		private void OnEnable()
+		public void OnWallStick()
 		{
+			enabled = true;
 			playerRb.gravityScale = 0;
 			playerRb.velocity = Vector3.zero;
 			timeEnabled = Time.time;
 			startSlideEvent.Invoke();
 		}
 
-		private void OnDisable()
+		public void OnWallLeap()
 		{
 			playerRb.gravityScale = defaultGravityScale;
+			enabled = false;
 		}
 
 		private void Update()

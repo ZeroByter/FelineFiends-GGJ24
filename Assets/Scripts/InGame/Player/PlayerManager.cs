@@ -78,7 +78,7 @@ namespace InGame.Player
 		{
 			FacingDirection *= -1;
 			jump.enabled = true;
-			wallsStick.enabled = true;
+			wallsStick.OnWallStick();
 		}
 
 		public void OnStartSlide() { }

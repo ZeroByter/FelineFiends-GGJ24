@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5086145, y: -0.15}
+  m_Offset: {x: 0.525, y: -0.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.017, y: 0.4}
+  m_Size: {x: 0.05, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &7944625511754573527
 MonoBehaviour:
@@ -133,9 +133,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 6262590066106683383}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: InGame.Player.PlayerWallsStick, Assembly-CSharp
+        m_MethodName: OnWallLeap
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -518,7 +518,7 @@ MonoBehaviour:
   playerRb: {fileID: 5059896502581431640}
   velocity: {x: 10, y: 18}
   chargeMaxTime: 0.8
-  minJumpVelocity: 2
+  minJumpVelocity: 1.75
 --- !u!114 &6262590066106683383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,7 +897,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5112009}
+  m_Offset: {x: 0, y: 0.525}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -908,7 +908,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.02240181}
+  m_Size: {x: 0.95, y: 0.05}
   m_EdgeRadius: 0
 --- !u!114 &7814460076075811678
 MonoBehaviour:
@@ -1278,7 +1278,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5066023}
+  m_Offset: {x: 0, y: -0.525}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1289,7 +1289,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.015001297}
+  m_Size: {x: 0.95, y: 0.05}
   m_EdgeRadius: 0
 --- !u!114 &2217852257264396099
 MonoBehaviour:
@@ -1401,7 +1401,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.50861454, y: -0.15}
+  m_Offset: {x: -0.525, y: -0.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1412,7 +1412,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.017, y: 0.40000004}
+  m_Size: {x: 0.05, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &2147303581857593827
 MonoBehaviour:
@@ -1469,9 +1469,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 6262590066106683383}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: InGame.Player.PlayerWallsStick, Assembly-CSharp
+        m_MethodName: OnWallLeap
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1553,11 +1553,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9400005
+      value: 3.9399998
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29999924
+      value: -0.29999986
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1565,11 +1565,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9400005
+      value: 3.9399998
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29999924
+      value: -1.3000001
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.z
