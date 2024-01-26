@@ -73,6 +73,8 @@ namespace InGame.Player
 			jump.enabled = false;
 			wallsStick.enabled = false;
 			sidewaysTriggers.ForEach(t => t.SetActive(true));
+
+			PlayerAnimator.SetIsOnGround(false);
 		}
 
 		public void OnLand()
@@ -83,7 +85,7 @@ namespace InGame.Player
 			sidewaysTriggers.ForEach(t => t.SetActive(false));
 			onLand.Invoke();
 
-			PlayerAnimator.SetInstanceState(AnimatorState.IDLE);
+			PlayerAnimator.SetIsOnGround(true);
 		}
 
 		public void OnStickToWall()

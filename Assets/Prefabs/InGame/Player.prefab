@@ -193,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 860812406233185033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.16544724, y: 1.5221205, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ab9ba171b9c494dada87ba2faa2565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRb: {fileID: 5059896502581431640}
   move: {fileID: 219049823164549051}
   jump: {fileID: 3728800116001951150}
   wallsStick: {fileID: 6262590066106683383}
@@ -851,8 +852,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5d4585fe1d2955546a86acb9b502497f, type: 3}
-  m_Color: {r: 0.54905653, g: 1, b: 0.97954893, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4632550aa33c4d749814c131fcd95238, type: 3}
+  m_Color: {r: 0.8679245, g: 0.5842855, b: 0.36436453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -880,29 +881,34 @@ MonoBehaviour:
     sprites:
     - {fileID: 21300000, guid: cab360787bdc2c4429c3b1db952cdd59, type: 3}
     - {fileID: 21300000, guid: f0a2927b43b41224a9e84c156f49e808, type: 3}
-    speed: 150
+    speed: 0.375
     velocityBasedSpeed: 0
+    inverseDirection: 0
   - state: 1
     sprites:
     - {fileID: 21300000, guid: 5d4585fe1d2955546a86acb9b502497f, type: 3}
     - {fileID: 21300000, guid: ee57c7b7d83e401449f344f8489d066a, type: 3}
     speed: 1
     velocityBasedSpeed: 1
+    inverseDirection: 0
   - state: 2
     sprites:
     - {fileID: 21300000, guid: 544bc9f4a5f2a2848a385c4301d00338, type: 3}
     speed: 0
     velocityBasedSpeed: 0
+    inverseDirection: 0
   - state: 3
     sprites:
     - {fileID: 21300000, guid: 4f99ac7fb55892047ad433079f5ff42c, type: 3}
     speed: 0
     velocityBasedSpeed: 0
+    inverseDirection: 0
   - state: 4
     sprites:
     - {fileID: 21300000, guid: 4632550aa33c4d749814c131fcd95238, type: 3}
     speed: 0
     velocityBasedSpeed: 0
+    inverseDirection: 1
 --- !u!1 &3451615753989528654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,11 +1844,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.16544724
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5221205
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1850,11 +1856,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.16544724
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5221205
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.z

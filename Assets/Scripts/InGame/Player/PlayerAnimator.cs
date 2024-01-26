@@ -21,17 +21,43 @@ namespace InGame.Player
         public Sprite[] sprites;
         public float speed;
         public bool velocityBasedSpeed;
+        public bool inverseDirection;
     }
 
     public class PlayerAnimator : MonoBehaviour
     {
         private static PlayerAnimator Instance;
 
-        public static void SetInstanceState(AnimatorState state)
+        public static void SetIsWalking(bool isWalking)
         {
             if (Instance == null) return;
 
-            Instance.SetState(state);
+            Instance.isWalking = isWalking;
+            Instance.UpdateCurrentState();
+        }
+
+        public static void SetIsJumpCharging(bool isJumpCharging)
+        {
+            if (Instance == null) return;
+
+            Instance.isJumpCharging = isJumpCharging;
+            Instance.UpdateCurrentState();
+        }
+
+        public static void SetIsOnGround(bool isOnGround)
+        {
+            if (Instance == null) return;
+
+            Instance.isOnGround = isOnGround;
+            Instance.UpdateCurrentState();
+        }
+
+        public static void SetIsStickingWall(bool isStickingWall)
+        {
+            if (Instance == null) return;
+
+            Instance.isStickingWall = isStickingWall;
+            Instance.UpdateCurrentState();
         }
 
         [SerializeField] private SpriteRenderer spriteRenderer;
@@ -41,6 +67,11 @@ namespace InGame.Player
         private Dictionary<AnimatorState, AnimationData> animationStatesMap = new Dictionary<AnimatorState, AnimationData>();
 
         private AnimatorState currentStateKey = AnimatorState.IDLE;
+
+        private bool isWalking;
+        private bool isJumpCharging;
+        private bool isOnGround;
+        private bool isStickingWall;
 
         private float lastFrameChange;
         private int currentFrame;
@@ -65,6 +96,10 @@ namespace InGame.Player
             var currentState = animationStatesMap[currentStateKey];
 
             spriteRenderer.flipX = PlayerManager.Instance.FacingDirection == -1f;
+            if (currentState.inverseDirection)
+            {
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+            }
 
             if(Time.time > lastFrameChange + GetCurrentAnimationSpeed())
             {
@@ -94,9 +129,35 @@ namespace InGame.Player
             }
         }
 
-        public void SetState(AnimatorState state)
+        public void UpdateCurrentState()
         {
-            currentStateKey = state;
+            if (isOnGround)
+            {
+                if (isWalking)
+                {
+                    currentStateKey = AnimatorState.WALKING;
+                }
+                else if (isJumpCharging)
+                {
+                    currentStateKey = AnimatorState.JUMP_CHARGE;
+                }
+                else
+                {
+                    currentStateKey = AnimatorState.IDLE;
+                }
+            }
+            else
+            {
+                if (isStickingWall)
+                {
+                    currentStateKey = AnimatorState.WALL_STICK;
+                }
+                else
+                {
+                    currentStateKey = AnimatorState.JUMP;
+                }
+            }
+
             currentFrame = 0;
 
             spriteRenderer.sprite = animationStatesMap[currentStateKey].sprites[currentFrame];
