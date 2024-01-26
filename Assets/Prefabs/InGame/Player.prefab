@@ -391,7 +391,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   playerRb: {fileID: 5059896502581431640}
-  moveSpeed: 100
+  acceleration: 100
+  maxSpeed: 6
 --- !u!114 &3728800116001951150
 MonoBehaviour:
   m_ObjectHideFlags: 0

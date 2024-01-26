@@ -9,7 +9,8 @@ namespace InGame.Player
 		[SerializeField] private UnityEvent playerStartWalking;
 		[SerializeField] private UnityEvent playerStopWalking;
 		[SerializeField] private Rigidbody2D playerRb;
-		[SerializeField] private float moveSpeed = 1;
+		[SerializeField] private float acceleration = 1;
+		[SerializeField] private float maxSpeed = 2;
 		private float walkingDirection = 0;
 
 		private void Reset()
@@ -19,8 +20,9 @@ namespace InGame.Player
 
 		private void FixedUpdate()
 		{
-			Vector2 walkForce = new(moveSpeed * walkingDirection * Time.fixedDeltaTime, 0);
+			Vector2 walkForce = new(acceleration * walkingDirection * Time.fixedDeltaTime, 0);
 			playerRb.AddForce(walkForce, ForceMode2D.Impulse);
+			playerRb.velocity = Vector2.ClampMagnitude(playerRb.velocity, maxSpeed);
 		}
 
 		public void OnMove(InputAction.CallbackContext context)
