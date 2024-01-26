@@ -6,6 +6,14 @@ namespace InGame.Player
 	public class PlayerManager : MonoBehaviour
 	{
 		public static PlayerManager Instance;
+
+		public static float GetPlayerFriction()
+        {
+			if (Instance == null) return 0;
+
+			return Instance.playerFriction;
+        }
+
 		[Header("Movement Components")]
 		[SerializeField] private PlayerMover move;
 		[SerializeField] private PlayerJumper jump;
@@ -14,6 +22,8 @@ namespace InGame.Player
 		[SerializeField] private GameObject upCollider;
 		[SerializeField] private GameObject downCollider;
 		[SerializeField] private List<GameObject> sidewaysColliders;
+		[Header("Player properties")]
+		[SerializeField] private float playerFriction = 5;
 
 		public float FacingDirection { get; set; }
 
