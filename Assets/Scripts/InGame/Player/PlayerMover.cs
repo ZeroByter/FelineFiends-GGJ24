@@ -14,6 +14,8 @@ namespace InGame.Player
 		private float inputDirection = 0;
 		private float walkingDirection = 0;
 
+		private float FacingDirection { set => PlayerManager.Instance.FacingDirection = value; }
+
 		private void Reset()
 		{
 			playerRb = GetComponent<Rigidbody2D>();
@@ -27,6 +29,8 @@ namespace InGame.Player
 		private void OnEnable()
 		{
 			walkingDirection = inputDirection;
+			if (walkingDirection != 0)
+				FacingDirection = walkingDirection;
 		}
 
 		private void FixedUpdate()
@@ -43,12 +47,12 @@ namespace InGame.Player
 			walkingDirection = inputDirection;
 			if (context.performed)
 			{
-				PlayerManager.Instance.FacingDirection = walkingDirection;
+				FacingDirection = walkingDirection;
 			}
 			else if (context.started)
 			{
 				playerStartWalking.Invoke(walkingDirection);
-				PlayerManager.Instance.FacingDirection = walkingDirection;
+				FacingDirection = walkingDirection;
 			}
 			else if (context.canceled)
 				playerStopWalking.Invoke();
