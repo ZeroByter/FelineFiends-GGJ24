@@ -18,6 +18,11 @@ namespace InGame.Player
 			playerRb = GetComponent<Rigidbody2D>();
 		}
 
+		private void OnDisable()
+		{
+			walkingDirection = 0;
+		}
+
 		private void FixedUpdate()
 		{
 			Vector2 walkForce = new(acceleration * walkingDirection * Time.fixedDeltaTime, 0);
