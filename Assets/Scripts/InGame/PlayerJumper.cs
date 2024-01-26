@@ -20,11 +20,9 @@ public class PlayerJumper : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
 	{
-		if (context.performed)
-		{
-            Debug.Log(startTime);
-		}
-		else if (context.started)
+        if (!isActiveAndEnabled) return;
+
+		if (context.started)
         {
 			playerPrepareJumpEvent.Invoke();
 			startTime = (float)context.startTime;

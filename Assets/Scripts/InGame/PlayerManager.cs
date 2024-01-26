@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -13,7 +14,20 @@ public class PlayerManager : MonoBehaviour
         return Singleton.transform.position;
     }
 
+    public static float GetPlayerFriction()
+    {
+        if (Singleton == null) return 0;
+
+        return Singleton.playerFriction;
+    }
+
+    [SerializeField] private float playerFriction = 5;
+
+    public UnityEvent onCeilingCollision;
+    public UnityEvent onGroundCollision;
+
     private PlayerMover mover;
+    private PlayerJumper jumper;
     private PlayerWallsStick wallsStick;
     private PlayerCeilingCollision ceilingCollision;
 
@@ -32,6 +46,7 @@ public class PlayerManager : MonoBehaviour
         Singleton = this;
 
         mover = GetComponent<PlayerMover>();
+        jumper = GetComponent<PlayerJumper>();
         wallsStick = GetComponent<PlayerWallsStick>();
         ceilingCollision = GetComponent<PlayerCeilingCollision>();
 
@@ -42,15 +57,17 @@ public class PlayerManager : MonoBehaviour
     {
         if(!lastIsGrounded && isGrounded)
         {
+            onGroundCollision.Invoke();
             hasJumped = false;
         }
 
         mover.enabled = isGrounded;
+        jumper.enabled = isGrounded;
         wallsStick.enabled = !isGrounded && isTouchingWall;
 
         if (!lastIsTouchingCeiling && isTouchingCeiling)
         {
-            ceilingCollision.TriggerCeilingCollision();
+            onCeilingCollision.Invoke();
         }
     }
 
