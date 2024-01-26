@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 1149303502186610026}
   - component: {fileID: 219049823164549051}
   - component: {fileID: 3728800116001951150}
-  - component: {fileID: 6262590066106683383}
+  - component: {fileID: 3942529212981171312}
   m_Layer: 6
   m_Name: Cat
   m_TagString: Untagged
@@ -167,7 +167,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 43f3e273ef4381d40b949677a7ef9146, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -410,10 +410,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e73d0f24702e540aa7e4aa381b3a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSlideEvent:
+  playerFriction: 5
+  onCeilingCollision:
     m_PersistentCalls:
       m_Calls: []
-  playerRb: {fileID: 5059896502581431640}
+  onGroundCollision:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3728800116001951150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860812406233185033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de8799383d0b2a40b399c44a0a8d2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3942529212981171312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860812406233185033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4aa21a4796e1f41b84939c8b54c424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3451615753989528654
 GameObject:
   m_ObjectHideFlags: 0
