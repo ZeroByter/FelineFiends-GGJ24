@@ -1363,9 +1363,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3869768193366403173, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869768193366403173, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869768193366403173, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869768193366403173, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3869768193366403173, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 3966250137288706163, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
       propertyPath: m_Name
       value: UI Canvas
@@ -1479,9 +1495,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5509134486247131203, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509134486247131203, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509134486247131203, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509134486247131203, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5509134486247131203, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 6269866191805612162, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
       propertyPath: m_Name
       value: Main Menu
