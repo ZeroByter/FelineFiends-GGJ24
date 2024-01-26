@@ -13,8 +13,9 @@ namespace InGame.Player
 		[SerializeField] private Vector2 velocity = new(5, 7.5f);
 		[SerializeField] private float chargeMaxTime = 1;
 		[SerializeField] private float minJumpVelocity = 1;
-		private float startTime;
+		private float startTime = float.NaN;
 
+		public bool JumpCharging => !float.IsNaN(startTime);
 		public Vector2 JumpVelocity => ClampMin(velocity * new Vector2(PlayerManager.Instance.FacingDirection, 1) * TimePassed, minJumpVelocity);
 		private float TimePassed => ClampMax(Time.time - startTime, chargeMaxTime);
 
@@ -31,13 +32,15 @@ namespace InGame.Player
 				playerPrepareJumpEvent.Invoke();
 				startTime = Time.time;
 			}
-			else if (context.canceled)
+			else if (context.canceled) 
 			{
+				if (!JumpCharging) return;
 				Vector2 jumpVelocity = JumpVelocity;
 				if (jumpVelocity.magnitude < minJumpVelocity)
 					jumpVelocity = JumpVelocity.normalized * minJumpVelocity;
 				playerRb.velocity = jumpVelocity;
 				playerJumpEvent.Invoke(TimePassed);
+				startTime = float.NaN;
 			}
 		}
 	}
