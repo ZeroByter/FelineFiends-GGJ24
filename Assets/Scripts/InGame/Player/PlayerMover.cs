@@ -6,11 +6,12 @@ namespace InGame.Player
 {
 	public class PlayerMover : MonoBehaviour
 	{
-		[SerializeField] private UnityEvent playerStartWalking;
+		[SerializeField] private UnityEvent<float> playerStartWalking;
 		[SerializeField] private UnityEvent playerStopWalking;
 		[SerializeField] private Rigidbody2D playerRb;
 		[SerializeField] private float acceleration = 1;
 		[SerializeField] private float maxSpeed = 2;
+		private float inputDirection = 0;
 		private float walkingDirection = 0;
 
 		private void Reset()
@@ -23,6 +24,11 @@ namespace InGame.Player
 			walkingDirection = 0;
 		}
 
+		private void OnEnable()
+		{
+			walkingDirection = inputDirection;
+		}
+
 		private void FixedUpdate()
 		{
 			Vector2 walkForce = new(acceleration * walkingDirection * Time.fixedDeltaTime, 0);
@@ -32,15 +38,16 @@ namespace InGame.Player
 
 		public void OnMove(InputAction.CallbackContext context)
 		{
+			inputDirection = context.ReadValue<float>();
 			if (!enabled) return;
-			walkingDirection = context.ReadValue<float>();
+			walkingDirection = inputDirection;
 			if (context.performed)
 			{
 				PlayerManager.Instance.FacingDirection = walkingDirection;
 			}
 			else if (context.started)
 			{
-				playerStartWalking.Invoke();
+				playerStartWalking.Invoke(walkingDirection);
 				PlayerManager.Instance.FacingDirection = walkingDirection;
 			}
 			else if (context.canceled)
