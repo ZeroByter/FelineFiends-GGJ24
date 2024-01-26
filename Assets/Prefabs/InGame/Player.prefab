@@ -341,11 +341,6 @@ MonoBehaviour:
   move: {fileID: 219049823164549051}
   jump: {fileID: 3728800116001951150}
   wallsStick: {fileID: 6262590066106683383}
-  upCollider: {fileID: 3520784962296128637}
-  downCollider: {fileID: 7873293708420541843}
-  sidewaysColliders:
-  - {fileID: 603346053434765136}
-  - {fileID: 8884420262448193073}
   playerFriction: 5
   onBumpCeiling:
     m_PersistentCalls:

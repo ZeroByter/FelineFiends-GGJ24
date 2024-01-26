@@ -5,12 +5,12 @@ namespace InGame
 {
 	public class OnTrigger : MonoBehaviour
 	{
-		[SerializeField] private UnityEvent onTriggerEnter;
-		[SerializeField] private UnityEvent onTriggerExit;
+		[SerializeField] private UnityEvent<Collider2D> onTriggerEnter;
+		[SerializeField] private UnityEvent<Collider2D> onTriggerExit;
 		[SerializeField] private LayerMask terrainMask;
 
-		private void OnTriggerEnter2D(Collider2D collision) => onTriggerEnter.Invoke();
+		private void OnTriggerEnter2D(Collider2D collision) => onTriggerEnter.Invoke(collision);
 
-		private void OnTriggerExit2D(Collider2D collision) => onTriggerExit.Invoke();
+		private void OnTriggerExit2D(Collider2D collision) => onTriggerExit.Invoke(collision);
 	}
 }

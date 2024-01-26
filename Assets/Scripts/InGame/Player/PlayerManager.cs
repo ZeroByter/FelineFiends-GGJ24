@@ -19,10 +19,6 @@ namespace InGame.Player
 		[SerializeField] private PlayerMover move;
 		[SerializeField] private PlayerJumper jump;
 		[SerializeField] private PlayerWallsStick wallsStick;
-		[Header("Directional Colliders")]
-		[SerializeField] private GameObject upCollider;
-		[SerializeField] private GameObject downCollider;
-		[SerializeField] private List<GameObject> sidewaysColliders;
 		[Header("Player properties")]
 		[SerializeField] private float playerFriction = 5;
 		[Header("Events")]
@@ -41,6 +37,7 @@ namespace InGame.Player
 		private void Awake()
 		{
 			Instance = this;
+			FacingDirection = 1;
 		}
 
 		public static Vector3 GetPosition()
@@ -60,8 +57,7 @@ namespace InGame.Player
 		{
 			move.enabled = false;
 			jump.enabled = false;
-			upCollider.SetActive(true);
-			sidewaysColliders.ForEach(g => g.SetActive(true));
+			wallsStick.enabled = false;
 		}
 
 		public void OnLeaveGround() => OnJump();
@@ -71,9 +67,6 @@ namespace InGame.Player
 			move.enabled = true;
 			jump.enabled = true;
 			wallsStick.enabled = false;
-			upCollider.SetActive(false);
-			sidewaysColliders.ForEach(g => g.SetActive(false));
-
 			onLand.Invoke();
 		}
 
@@ -82,21 +75,12 @@ namespace InGame.Player
 			FacingDirection *= -1;
 			jump.enabled = true;
 			wallsStick.enabled = true;
-			sidewaysColliders.ForEach(g => g.SetActive(false));
-			upCollider.SetActive(false);
-			//downCollider.SetActive(false);
 		}
 
-		public void OnStartSlide()
-		{
-			downCollider.SetActive(true);
-		}
+		public void OnStartSlide() { }
 
 		public void OnBumpCeiling()
 		{
-			sidewaysColliders.ForEach(g => g.SetActive(false));
-			upCollider.SetActive(false);
-
 			onBumpCeiling.Invoke();
 		}
 	}

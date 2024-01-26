@@ -32,6 +32,7 @@ namespace InGame.Player
 				float timePassed = (float)context.time - startTime;
 				timePassed = ClampMax(timePassed, chargeMaxTime);
 				Vector2 jumpForce = force * new Vector2(PlayerManager.Instance.FacingDirection, 1) * timePassed;
+				playerRb.velocity = Vector2.zero;
 				playerRb.AddForce(jumpForce, ForceMode2D.Force);
 				playerJumpEvent.Invoke(timePassed);
 			}
