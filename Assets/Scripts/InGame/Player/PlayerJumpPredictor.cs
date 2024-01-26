@@ -2,7 +2,7 @@
 
 namespace InGame.Player
 {
-	class ObjectLaunchPredictor : MonoBehaviour
+	class PlayerJumpPredictor : MonoBehaviour
 	{
 		[SerializeField] private Rigidbody2D playerRb;
 		[SerializeField] private PlayerJumper jump;
