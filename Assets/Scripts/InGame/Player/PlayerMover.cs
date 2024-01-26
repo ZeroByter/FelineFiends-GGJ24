@@ -53,9 +53,15 @@ namespace InGame.Player
 			{
 				playerStartWalking.Invoke(walkingDirection);
 				FacingDirection = walkingDirection;
+
+				PlayerAnimator.SetIsWalking(true);
 			}
 			else if (context.canceled)
+			{
 				playerStopWalking.Invoke();
+
+				PlayerAnimator.SetIsWalking(false);
+			}
 		}
 	}
 }

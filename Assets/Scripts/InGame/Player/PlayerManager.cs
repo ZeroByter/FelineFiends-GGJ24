@@ -16,7 +16,15 @@ namespace InGame.Player
 			return Instance.playerFriction;
         }
 
+		public static Rigidbody2D GetRigidbody()
+        {
+			if (Instance == null) return null;
+
+			return Instance.playerRb;
+        }
+
 		[Header("Movement Components")]
+		[SerializeField] private Rigidbody2D playerRb;
 		[SerializeField] private PlayerMover move;
 		[SerializeField] private PlayerJumper jump;
 		[SerializeField] private PlayerWallsStick wallsStick;
@@ -33,6 +41,8 @@ namespace InGame.Player
 
 		private void Reset()
 		{
+			playerRb = GetComponent<Rigidbody2D>();
+
 			move = GetComponent<PlayerMover>();
 			jump = GetComponent<PlayerJumper>();
 			wallsStick = GetComponent<PlayerWallsStick>();
@@ -65,6 +75,8 @@ namespace InGame.Player
 			jump.enabled = false;
 			wallsStick.enabled = false;
 			sidewaysTriggers.ForEach(t => t.SetActive(true));
+
+			PlayerAnimator.SetIsOnGround(false);
 		}
 
 		public void OnLand()
@@ -74,6 +86,8 @@ namespace InGame.Player
 			wallsStick.enabled = false;
 			sidewaysTriggers.ForEach(t => t.SetActive(false));
 			onLand.Invoke();
+
+			PlayerAnimator.SetIsOnGround(true);
 		}
 
 		public void OnStickToWall()

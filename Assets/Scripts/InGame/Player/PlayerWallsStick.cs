@@ -30,12 +30,14 @@ namespace InGame.Player
 			playerRb.velocity = Vector3.zero;
 			timeEnabled = Time.time;
 			startSlideEvent.Invoke();
+			PlayerAnimator.SetIsStickingWall(true);
 		}
 
 		public void OnWallLeap()
 		{
 			playerRb.gravityScale = defaultGravityScale;
 			enabled = false;
+			PlayerAnimator.SetIsStickingWall(false);
 		}
 
 		private void Update()
