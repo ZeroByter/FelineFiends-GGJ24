@@ -205,7 +205,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2.1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -516,8 +516,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   playerRb: {fileID: 5059896502581431640}
-  velocity: {x: 5, y: 7.5}
-  chargeMaxTime: 1.1
+  velocity: {x: 13, y: 19}
+  chargeMaxTime: 0.8
   minJumpVelocity: 1.75
 --- !u!114 &6262590066106683383
 MonoBehaviour:
@@ -537,7 +537,7 @@ MonoBehaviour:
   playerRb: {fileID: 5059896502581431640}
   stickDuration: 1
   slideDuration: 3
-  defaultGravityScale: 1
+  defaultGravityScale: 2.1
 --- !u!114 &1289616843433685014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,6 +565,7 @@ MonoBehaviour:
   _landShakeGain: 0.1
   _landShakeFreq: 1
   _landShakeTime: 0.25
+  _landShakeMinVelocity: 1
   _cameraManager: {fileID: 7666112620527788232}
 --- !u!1 &2515005549890540602
 GameObject:
@@ -907,7 +908,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.05}
+  m_Size: {x: 0.95, y: 0.05}
   m_EdgeRadius: 0
 --- !u!114 &7814460076075811678
 MonoBehaviour:
@@ -992,7 +993,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 8470024751770153662}
   steps: 50
   distance: 5
-  defaultGravityScale: 1
+  defaultGravityScale: 2.1
 --- !u!120 &8470024751770153662
 LineRenderer:
   serializedVersion: 2
@@ -1288,7 +1289,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.05}
+  m_Size: {x: 0.95, y: 0.05}
   m_EdgeRadius: 0
 --- !u!114 &2217852257264396099
 MonoBehaviour:
@@ -1568,7 +1569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.49999985
+      value: 0.5000001
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.z
