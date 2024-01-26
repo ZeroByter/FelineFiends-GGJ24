@@ -667,7 +667,7 @@ PrefabInstance:
     - target: {fileID: 116372492605909931, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
       propertyPath: _pauseMenu
       value: 
-      objectReference: {fileID: 1961959411}
+      objectReference: {fileID: 0}
     - target: {fileID: 116372492605909931, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
       propertyPath: _inGameMenu
       value: 
@@ -756,6 +756,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 3869768193366403173, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3869768193366403173, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3966250137288706163, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
       propertyPath: m_Name
       value: UI Canvas
@@ -1071,11 +1079,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1961959411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6269866191805612162, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
-  m_PrefabInstance: {fileID: 1423043940}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1961959412 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 111418790621612450, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
