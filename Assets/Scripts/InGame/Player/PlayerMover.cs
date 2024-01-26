@@ -43,7 +43,18 @@ namespace InGame.Player
 		public void OnMove(InputAction.CallbackContext context)
 		{
 			inputDirection = context.ReadValue<float>();
+
+            if (context.started)
+            {
+				PlayerAnimator.SetIsWalking(true);
+            }
+            else if(context.canceled)
+            {
+				PlayerAnimator.SetIsWalking(false);
+			}
+
 			if (!enabled) return;
+
 			walkingDirection = inputDirection;
 			if (context.performed)
 			{
@@ -53,14 +64,10 @@ namespace InGame.Player
 			{
 				playerStartWalking.Invoke(walkingDirection);
 				FacingDirection = walkingDirection;
-
-				PlayerAnimator.SetIsWalking(true);
 			}
 			else if (context.canceled)
 			{
 				playerStopWalking.Invoke();
-
-				PlayerAnimator.SetIsWalking(false);
 			}
 		}
 	}
