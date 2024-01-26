@@ -9,6 +9,7 @@ namespace InGame.Player
 		[SerializeField] private LineRenderer lineRenderer;
 		[SerializeField] private int steps;
 		[SerializeField] private float distance;
+		[SerializeField] private float defaultGravityScale = 1;
 
 		private Vector2 JumpVelocity => jump.JumpVelocity;
 		private Transform JumpRoot => jump.transform;
@@ -16,6 +17,8 @@ namespace InGame.Player
 		private void OnValidate()
 		{
 			lineRenderer.positionCount = steps;
+			if (playerRb != null)
+				defaultGravityScale = playerRb.gravityScale;
 		}
 
 		private void Update()
@@ -27,7 +30,7 @@ namespace InGame.Player
 
 		private Vector2 GetPosition(float t)
 		{
-			return (Vector2)JumpRoot.position + (t * JumpVelocity) + 0.5f * t * t * Physics2D.gravity * playerRb.gravityScale;
+			return (Vector2)JumpRoot.position + (t * JumpVelocity) + 0.5f * t * t * Physics2D.gravity * defaultGravityScale;
 		}
 	}
 }
