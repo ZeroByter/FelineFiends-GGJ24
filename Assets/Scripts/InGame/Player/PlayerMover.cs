@@ -37,7 +37,7 @@ namespace InGame.Player
 		{
 			Vector2 walkForce = new(acceleration * walkingDirection * Time.fixedDeltaTime, 0);
 			playerRb.AddForce(walkForce, ForceMode2D.Impulse);
-			playerRb.velocity = Vector2.ClampMagnitude(playerRb.velocity, maxSpeed);
+			playerRb.velocity = new Vector2(Mathf.Clamp(playerRb.velocity.x, -maxSpeed, maxSpeed), playerRb.velocity.y);
 		}
 
 		public void OnMove(InputAction.CallbackContext context)
