@@ -23,6 +23,7 @@ namespace InGame.UI
         [SerializeField] private Image[] images;
 
         [SerializeField] private bool startWithFullBackground;
+        [SerializeField] private float postLastFrameDelay = 3;
 
         [SerializeField] private List<CutsceneFrameData> frames = new List<CutsceneFrameData>();
 
@@ -85,7 +86,7 @@ namespace InGame.UI
                 images[activeImageIndex].sprite = frameData.frame;
             }
 
-            yield return new WaitForSeconds(frames[frames.Count - 1].delay);
+            yield return new WaitForSeconds(postLastFrameDelay);
 
             activeImageIndex = -1;
 

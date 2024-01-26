@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace InGame.UI
 {
@@ -16,8 +17,14 @@ namespace InGame.UI
 
             Instance.collectedPapers++;
             Instance.UpdateText();
+
+            if(Instance.collectedPapers >= Instance.totalPapers)
+            {
+                Instance.allCollectablesCollected.Invoke();
+            }
         }
 
+        [SerializeField] private UnityEvent allCollectablesCollected;
         [Header("Format string for counting papers")]
         [SerializeField] private string counterFormat = "Collected papers: {0} / {1}";
         [Header("How many papers are in this level?")]
