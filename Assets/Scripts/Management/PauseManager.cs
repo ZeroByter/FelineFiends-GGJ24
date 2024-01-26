@@ -46,15 +46,11 @@ namespace Management
 			this.paused = paused;
 			Time.timeScale = paused ? 0 : 1;
 			objectsToToggle.ForEach(o => o.SetActive(!paused));
+			MenuManager.Instance.ShowPauseMenu(paused);
 			if (paused)
-			{
 				playerInputActions.FindActionMap(playerActionMapName).Disable();
-				MenuManager.Instance.ShowPauseMenu();
-			}
 			else
-			{
 				playerInputActions.FindActionMap(playerActionMapName).Enable();
-			}
 		}
 
 		private void ForceCurrentState()

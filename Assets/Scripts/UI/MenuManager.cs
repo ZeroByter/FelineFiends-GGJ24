@@ -15,9 +15,9 @@ namespace UI
 				Instance = this;
 		}
 
-		public void ShowPauseMenu()
+		public void ShowPauseMenu(bool show = true)
 		{
-			_pauseMenu.SetActive(true);
+			_pauseMenu.SetActive(show);
 		}
 
 		public void ReturnToGame()
