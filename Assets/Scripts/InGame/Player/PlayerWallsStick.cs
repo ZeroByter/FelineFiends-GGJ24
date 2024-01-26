@@ -30,6 +30,7 @@ namespace InGame.Player
 			playerRb.velocity = Vector3.zero;
 			timeEnabled = Time.time;
 			startSlideEvent.Invoke();
+			PlayerAnimator.SetInstanceState(AnimatorState.WALL_STICK);
 		}
 
 		public void OnWallLeap()

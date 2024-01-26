@@ -282,6 +282,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
+--- !u!50 &1036761986 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5059896502581431640, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
+  m_PrefabInstance: {fileID: 1891530656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1272734223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -395,6 +400,10 @@ PrefabInstance:
     - target: {fileID: 3297083373481316001, guid: 742b1605caddd264ba259139a78ac145, type: 3}
       propertyPath: m_Name
       value: Managers
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742080365937838121, guid: 742b1605caddd264ba259139a78ac145, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4136,6 +4145,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1803954685}
     m_Modifications:
+    - target: {fileID: 105673452509734234, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
+      propertyPath: animationStates.Array.data[0].speed
+      value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149303502186610026, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 1036761986}
     - target: {fileID: 3451615753989528654, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4179,6 +4196,22 @@ PrefabInstance:
     - target: {fileID: 4865802933264137114, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314629399881292848, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314629399881292848, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.36436453
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314629399881292848, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5842855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314629399881292848, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8679245
       objectReference: {fileID: 0}
     - target: {fileID: 5601884123106116167, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target

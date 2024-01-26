@@ -33,6 +33,8 @@ namespace InGame.Player
 			{
 				playerPrepareJumpEvent.Invoke();
 				startTime = Time.time;
+
+				PlayerAnimator.SetInstanceState(AnimatorState.JUMP_CHARGE);
 			}
 			else if (context.canceled) 
 			{
@@ -43,6 +45,8 @@ namespace InGame.Player
 				playerRb.velocity = jumpVelocity;
 				playerJumpEvent.Invoke(JumpForcePercentage);
 				JumpCharging = false;
+
+				PlayerAnimator.SetInstanceState(AnimatorState.JUMP);
 			}
 		}
 
