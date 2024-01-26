@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace InGame.Player
 {
@@ -24,6 +25,9 @@ namespace InGame.Player
 		[SerializeField] private List<GameObject> sidewaysColliders;
 		[Header("Player properties")]
 		[SerializeField] private float playerFriction = 5;
+		[Header("Events")]
+		[SerializeField] private UnityEvent onBumpCeiling;
+		[SerializeField] private UnityEvent onLand;
 
 		public float FacingDirection { get; set; }
 
@@ -69,6 +73,8 @@ namespace InGame.Player
 			wallsStick.enabled = false;
 			upCollider.SetActive(false);
 			sidewaysColliders.ForEach(g => g.SetActive(false));
+
+			onLand.Invoke();
 		}
 
 		public void OnStickToWall()
@@ -90,6 +96,8 @@ namespace InGame.Player
 		{
 			sidewaysColliders.ForEach(g => g.SetActive(false));
 			upCollider.SetActive(false);
+
+			onBumpCeiling.Invoke();
 		}
 	}
 }
