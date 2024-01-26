@@ -536,6 +536,7 @@ MonoBehaviour:
   playerRb: {fileID: 5059896502581431640}
   stickDuration: 1
   slideDuration: 3
+  defaultGravityScale: 1
 --- !u!114 &1289616843433685014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,6 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc39601b75d66db44a2503947d98609f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRb: {fileID: 5059896502581431640}
   jump: {fileID: 3728800116001951150}
   lineRenderer: {fileID: 8470024751770153662}
   steps: 50
