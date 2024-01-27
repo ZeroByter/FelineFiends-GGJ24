@@ -1,4 +1,5 @@
 using InGame.UI;
+using Management;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,6 @@ namespace InGame
     public class TheEndTrigger : MonoBehaviour
     {
         [SerializeField] private int totalCollectables = 6;
-
-        [SerializeField] private CutsceneController gameEndCutscene;
-
         [SerializeField] private GameObject signRenderer;
         [SerializeField] private BoxCollider2D boxCollider;
 
@@ -27,14 +25,9 @@ namespace InGame
             boxCollider.enabled = true;
         }
 
-        public void GoToMainMenu()
-        {
-            SceneManager.LoadScene("Main Menu");
-        }
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            gameEndCutscene.enabled = true;
-        }
+			SceneManager.LoadSceneAsync("Ending", LoadSceneMode.Single);
+		}
     }
 }

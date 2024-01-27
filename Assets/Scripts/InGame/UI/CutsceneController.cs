@@ -1,8 +1,10 @@
+using Management;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace InGame.UI
@@ -18,8 +20,6 @@ namespace InGame.UI
     {
         [SerializeField] private UnityEvent onCutsceneEnd;
 
-        [SerializeField] private Image background;
-
         [SerializeField] private Image[] images;
 
         [SerializeField] private bool startWithFullBackground;
@@ -29,24 +29,8 @@ namespace InGame.UI
 
         private int activeImageIndex = -1;
 
-        private bool cutsceneActive;
-
-        private void Awake()
-        {
-            background.color = new Color(0, 0, 0, 0);
-        }
-
         private void Update()
         {
-            if (cutsceneActive)
-            {
-                background.color = Color.Lerp(background.color, Color.black, 5f * Time.deltaTime);
-            }
-            else
-            {
-                background.color = Color.Lerp(background.color, new Color(0, 0, 0, 0), 5f * Time.deltaTime);
-            }
-
             for (int i = 0; i < images.Length; i++)
             {
                 var image = images[i];
@@ -64,13 +48,6 @@ namespace InGame.UI
 
         private void OnEnable()
         {
-            cutsceneActive = true;
-
-            if (startWithFullBackground)
-            {
-                background.color = new Color(0, 0, 0, 1);
-            }
-
             StartCoroutine(StartCutscene());
         }
 
@@ -93,18 +70,9 @@ namespace InGame.UI
             onCutsceneEnd.Invoke();
         }
 
-        public void StartMakeCutsceneInactive()
+        public void LoadScene(string sceneName)
         {
-            cutsceneActive = false;
-            StartCoroutine(MakeCutsceneInactive());
-        }
-
-        private IEnumerator MakeCutsceneInactive()
-        {
-            yield return new WaitUntil(() => background.color.a < 0.05f);
-
-            background.color = new Color(0, 0, 0, 0);
-            this.enabled = false;
-        }
+			SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+		}
     }
 }

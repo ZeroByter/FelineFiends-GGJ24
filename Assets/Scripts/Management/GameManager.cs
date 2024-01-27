@@ -19,7 +19,7 @@ namespace Management
 
 		public static void StartGame()
 		{
-			SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Single);
+			SceneManager.LoadSceneAsync("Opening", LoadSceneMode.Single);
 		}
 
 		public static void RestartLevel()

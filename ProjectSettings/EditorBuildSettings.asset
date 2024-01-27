@@ -9,7 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 8698635db1551df4a8e7af845d5fa031
   - enabled: 1
+    path: Assets/Scenes/Cutscenes/Opening.unity
+    guid: 4132be6c3f6537a4bbdcef2b3c907250
+  - enabled: 1
     path: Assets/Scenes/Levels/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Ending.unity
+    guid: fcbd180bd2498c74f8437492f17aac7f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 77105a5111080194786116db6546608d, type: 2}
