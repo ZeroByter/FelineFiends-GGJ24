@@ -424,10 +424,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4160367969618851485, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 1214593498}
     - targetCorrespondingSourceObject: {fileID: 4160367969618851485, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 1121390169}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00ecb610ca8a0284090d45eabbe97b66, type: 3}
@@ -5272,25 +5272,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1803954685}
     m_Modifications:
-    - target: {fileID: 105673452509734234, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
-      propertyPath: animationStates.Array.data[1].speed
-      value: 0.0375
-      objectReference: {fileID: 0}
     - target: {fileID: 1184529643442249813, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.9200001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1184529643442249813, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07999992
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1195714414235649264, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.9200001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1195714414235649264, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07999992
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3451615753989528654, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_Name
@@ -5302,7 +5298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865802933264137114, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8
+      value: -7.95
       objectReference: {fileID: 0}
     - target: {fileID: 4865802933264137114, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5340,29 +5336,13 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1312042693}
-    - target: {fileID: 8554352690963343715, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554352690963343715, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.028301895
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554352690963343715, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.028301895
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554352690963343715, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.028301895
-      objectReference: {fileID: 0}
     - target: {fileID: 9117446847601761290, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.92
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9117446847601761290, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.08
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

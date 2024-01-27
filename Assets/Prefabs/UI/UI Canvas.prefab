@@ -105,8 +105,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2500209541467161518}
   - {fileID: 5096673256814311994}
+  - {fileID: 2500209541467161518}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -496,6 +496,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f52378175f913c43a60fdebee0bc72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allCollectablesCollected:
+    m_PersistentCalls:
+      m_Calls: []
   counterFormat: 'Collected papers: {0} / {1}'
   totalPapers: 5
   textCounter: {fileID: 4841480826299873589}
