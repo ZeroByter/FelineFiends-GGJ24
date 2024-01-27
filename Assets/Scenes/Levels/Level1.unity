@@ -31088,27 +31088,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1184529643442249813, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1184529643442249813, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00000011920929
+      value: 0.18583465
       objectReference: {fileID: 0}
     - target: {fileID: 1195714414235649264, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.523615
+      value: -6.4415417
       objectReference: {fileID: 0}
     - target: {fileID: 1195714414235649264, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4499998
-      objectReference: {fileID: 0}
-    - target: {fileID: 1195714414235649264, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1406962598714477421, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      value: 3.8600001
       objectReference: {fileID: 0}
     - target: {fileID: 1406962598714477421, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_BoundingShape2D
@@ -31120,11 +31108,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865802933264137114, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.25
+      value: 3.886
       objectReference: {fileID: 0}
     - target: {fileID: 4865802933264137114, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4499998
+      value: -1.86
       objectReference: {fileID: 0}
     - target: {fileID: 4865802933264137114, guid: 6f53db01917d90044af2a8ed94224ba6, type: 3}
       propertyPath: m_LocalPosition.z
