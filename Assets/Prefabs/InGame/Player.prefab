@@ -1010,6 +1010,7 @@ MonoBehaviour:
   - state: 1
     sprites:
     - {fileID: 21300000, guid: 5d4585fe1d2955546a86acb9b502497f, type: 3}
+    - {fileID: 21300000, guid: 01bcf16fd25315d4ca6cc8746b97fba6, type: 3}
     - {fileID: 21300000, guid: ee57c7b7d83e401449f344f8489d066a, type: 3}
     speed: 0.0375
     velocityBasedSpeed: 1
