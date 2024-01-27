@@ -205,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 860812406233185033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.43, y: 0.19, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -655,7 +655,7 @@ MonoBehaviour:
   playerRb: {fileID: 5059896502581431640}
   velocity: {x: 10, y: 18}
   chargeMaxTime: 0.8
-  minJumpVelocity: 1.75
+  minJumpVelocity: 1.9
 --- !u!114 &6262590066106683383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2436,11 +2436,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4300002
+      value: -0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19000015
+      value: 0.00000014901161
       objectReference: {fileID: 0}
     - target: {fileID: 8814513026713014746, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2448,15 +2448,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4300002
+      value: 4.282052
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19000015
+      value: -1.4484695
       objectReference: {fileID: 0}
     - target: {fileID: 8843728704192869759, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -9.620949
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6964329672987576959, guid: 4651debdf24b54b428b5dca3cd527549, type: 3}
