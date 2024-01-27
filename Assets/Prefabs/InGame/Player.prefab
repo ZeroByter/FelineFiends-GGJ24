@@ -504,10 +504,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStartWalking:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 105673452509734234}
+        m_TargetAssemblyTypeName: InGame.Player.PlayerAnimator, Assembly-CSharp
+        m_MethodName: SetIsWalking
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   playerStopWalking:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 105673452509734234}
+        m_TargetAssemblyTypeName: InGame.Player.PlayerAnimator, Assembly-CSharp
+        m_MethodName: SetIsWalking
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   playerRb: {fileID: 5059896502581431640}
   acceleration: 100
   maxSpeed: 5
